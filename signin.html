@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<style>
+    .navbar {
+    background-color: #0070F0;
+    border: 0;
+    border-radius: 0;
+    margin-bottom: 0;
+    font-size: 12px !important;
+    letter-spacing: 4px;
+}
+    .navbar h3{
+        color: #fff;
+    }
+    .form-container {
+            max-width: 400px;
+            height: 500px;
+            margin: 120px auto;
+            padding: 30px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+      .form-container h2 {
+            margin-bottom: 20px;
+            font-family: 'Montserrat', sans-serif;
+            color: #0070F0;
+            text-align: center;
+        }    
+      .form-container .form-group label {
+            font-weight: bold;
+        }
+        .form-container input[type=email], 
+        .form-container input[type=password] {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        
+        .form-container button {
+            background-color: #0070F0;
+            color: #fff;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .form-container button {
+            background-color: #0070F0;
+            color: #fff;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+    
+   
+   
+</style>
+<body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>                        
+            </button>
+            <a class="navbar-brand" href="index.html">LoanNow</a>
+          </div>
+          <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav navbar-right">
+              <h3>Login</h3>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <div class="form-container">
+        <h2>Login to LoanNow</h2>
+        <form>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Email address</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" required>
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Password</label>
+                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" required>
+            </div>
+            <div class="form-group checkbox">
+                <label>
+                    <input type="checkbox" name="remember" id="remember"> Remember me
+                </label>
+            </div>
+            <button type="submit" class="btn btn-primary" href="dashboard.html">Login</button>
+            <span class="psw"><a href="#">Forgot password?</a></span>
+        </form>
+    </div>
+
+    <footer class="container-fluid text-center">
+        <a href="#myPage" title="To Top">
+          <span class="glyphicon glyphicon-chevron-up"></span>
+        </a>
+        <p>LoanNow - Quick Loans for Your Needs</p>
+        <hr>
+        <a href="#">Terms and Condition</a>
+        <a href="#">Policy Violation</a>
+        <a href="#">Help Center</a>
+        </footer>
+
+
+</body>
+</html>

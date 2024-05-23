@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Theme Made By www.w3schools.com -->
   <title>LoanNow - Quick Loans for Your Needs</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -12,6 +11,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
+
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
 
 <nav class="navbar navbar-default navbar-fixed-top">
@@ -30,6 +30,7 @@
         <li><a href="#services">LOANS</a></li>
         <li><a href="#pricing">PRICING</a></li>
         <li><a href="#contact">CONTACT</a></li>
+        <li><a href="signin.html">LOGIN</a></li>
       </ul>
     </div>
   </div>
@@ -38,11 +39,11 @@
 <div class="jumbotron text-center">
   <h1>Quick Loans for Your Needs</h1> 
   <p>Get the funds you need, when you need them</p> 
-  <form class="form-inline">
+  <form class="form-inline" onsubmit="return validateForm()">
     <div class="input-group">
-      <input type="email" class="form-control" size="50" placeholder="Email Address" required>
+      <input type="email" class="form-control" size="50" placeholder="Email Address" id="email" required>
       <div class="input-group-btn">
-        <button type="button" class="btn btn-danger">Get Started</button>
+        <button type="submit" class="btn btn-danger">Get Started</button>
       </div>
     </div>
   </form>
@@ -95,59 +96,59 @@
   </div>
   <div class="row slideanim">
     <div class="col-sm-4 col-xs-12">
-        <div class="panel panel-default text-center">
-            <div class="panel-heading">
-                <h1>Loan 50</h1>
-            </div>
-            <div class="panel-body">
-                <p><strong>50</strong> Php</p>
-                <p><strong>100%</strong> Interest</p>
-                <p><strong>No Hidden</strong> Fees</p>
-                <p><strong></strong></p>
-                <br>
-                <p><strong></strong></p>
-            </div>
-            <div class="panel-footer">
-                <h3>50 Php</h3>
-                <button class="btn btn-lg">Apply Now</button>
-            </div>
+      <div class="panel panel-default text-center">
+        <div class="panel-heading">
+          <h1>Loan 50</h1>
         </div>
+        <div class="panel-body">
+          <p><strong>50</strong> Php</p>
+          <p><strong>100%</strong> Interest</p>
+          <p><strong>No Hidden</strong> Fees</p>
+          <p><strong></strong></p>
+          <br>
+          <p><strong></strong></p>
+        </div>
+        <div class="panel-footer">
+          <h3>50 Php</h3>
+          <button class="btn btn-lg" id="applyButton">Apply Now</button>
+        </div>
+      </div>
     </div>
 
     <div class="col-sm-4 col-xs-12">
-        <div class="panel panel-default text-center">
-            <div class="panel-heading">
-                <h1>Loan 100</h1>
-            </div>
-            <div class="panel-body">
-                <p><strong>100</strong> Php</p>
-                <p><strong>50%</strong> Interest</p>
-                <p><strong>1-day</strong> payment period</p>
-                <p><strong>No</strong> additional fees if paid within the period</p>
-            </div>
-            <div class="panel-footer">
-                <h3>100 Php</h3>
-                <button class="btn btn-lg">Apply Now</button>
-            </div>
+      <div class="panel panel-default text-center">
+        <div class="panel-heading">
+          <h1>Loan 100</h1>
         </div>
+        <div class="panel-body">
+          <p><strong>100</strong> Php</p>
+          <p><strong>50%</strong> Interest</p>
+          <p><strong>1-day</strong> payment period</p>
+          <p><strong>No</strong> additional fees if paid within the period</p>
+        </div>
+        <div class="panel-footer">
+          <h3>100 Php</h3>
+          <button class="btn btn-lg " onclick="signUp()">Apply Now</button>
+        </div>
+      </div>
     </div>
 
     <div class="col-sm-4 col-xs-12">
-        <div class="panel panel-default text-center">
-            <div class="panel-heading">
-                <h1>Loan 1000</h1>
-            </div>
-            <div class="panel-body">
-                <p><strong>1000</strong> Php</p>
-                <p><strong>20%</strong> Interest</p>
-                <p><strong>7-day</strong> payment period</p>
-                <p><strong>10% off</strong> additional fees if paid within the period</p>
-            </div>
-            <div class="panel-footer">
-                <h3>1000 Php</h3>
-                <button class="btn btn-lg">Apply Now</button>
-            </div>
+      <div class="panel panel-default text-center">
+        <div class="panel-heading">
+          <h1>Loan 1000</h1>
         </div>
+        <div class="panel-body">
+          <p><strong>1000</strong> Php</p>
+          <p><strong>20%</strong> Interest</p>
+          <p><strong>7-day</strong> payment period</p>
+          <p><strong>10% off</strong> additional fees if paid within the period</p>
+        </div>
+        <div class="panel-footer">
+          <h3>1000 Php</h3>
+          <button class="btn btn-lg">Apply Now</button>
+        </div>
+      </div>
     </div>
 
     <div class="col-sm-4 col-xs-12">
@@ -180,67 +181,84 @@
           <h3>Starting at ₱5000/mo</h3>
           <button class="btn btn-lg">Apply Now</button>
         </div>
-      </div>      
-    </div>       
-    <div class="col-sm-4 col-xs-12">
-      <div class="panel panel-default text-center">
-        <div class="panel-heading">
-          <h1>Premium</h1>
-        </div>
-        <div class="panel-body">
-          <p><strong>Lowest</strong> Interest Rates</p>
-          <p><strong>Flexible</strong> Terms and Conditions</p>
-          <p><strong>Exclusive</strong> Benefits</p>
-        </div>
-        <div class="panel-footer">
-          <h3>Starting at ₱10,000/mo</h3>
-          <button class="btn btn-lg">Apply Now</button>
-        </div>
-      </div>      
-    </div>    
-  </div>
+    </div>      
+  </div>       
+  <div class="col-sm-4 col-xs-12">
+    <div class="panel panel-default text-center">
+      <div class="panel-heading">
+        <h1>Premium</h1>
+      </div>
+      <div class="panel-body">
+        <p><strong>Lowest</strong> Interest Rates</p>
+        <p><strong>Flexible</strong> Terms and Conditions</p>
+        <p><strong>Exclusive</strong> Benefits</p>
+      </div>
+      <div class="panel-footer">
+        <h3>Starting at ₱10,000/mo</h3>
+        <button class="btn btn-lg">Apply Now</button>
+      </div>
+    </div>      
+  </div>    
+</div>
 </div>
 
+
+
+<div class="container text-center">
+  <h4><a href="pricing.html">Load more...</a></h4>
+</div>
 <!-- Container (Contact Section) -->
 <div id="contact" class="container-fluid bg-grey">
-  <h2 class="text-center">CONTACT</h2>
-  <div class="row">
-    <div class="col-sm-5">
-      <p>Contact us and we'll get back to you within 24 hours.</p>
-      <p><span class="glyphicon glyphicon-map-marker"></span> Batangas, Philippines</p>
-      <p><span class="glyphicon glyphicon-phone"></span> +63 971-1567-167</p>
-      <p><span class="glyphicon glyphicon-envelope"></span> info@loannow.com</p>
-    </div>
-    <div class="col-sm-7 slideanim">
-      <div class="row">
-        <div class="col-sm-6 form-group">
-          <input class="form-control" id="name" name="name" placeholder="Name" type="text" required>
-        </div>
-        <div class="col-sm-6 form-group">
-          <input class="form-control" id="email" name="email" placeholder="Email" type="email" required>
-        </div>
+<h2 class="text-center">CONTACT</h2>
+<div class="row">
+  <div class="col-sm-5">
+    <p>Contact us and we'll get back to you within 24 hours.</p>
+    <p><span class="glyphicon glyphicon-map-marker"></span> Batangas, Philippines</p>
+    <p><span class="glyphicon glyphicon-phone"></span> +63 971-1567-167</p>
+    <p><span class="glyphicon glyphicon-envelope"></span> info@loannow.com</p>
+  </div>
+  <div class="col-sm-7 slideanim">
+    <div class="row">
+      <div class="col-sm-6 form-group">
+        <input class="form-control" id="name" name="name" placeholder="Name" type="text" required>
       </div>
-      <textarea class="form-control" id="comments" name="comments" placeholder="Message" rows="5"></textarea><br>
-      <div class="row">
-        <div class="col-sm-12 form-group">
-          <button class="btn btn-default pull-right" type="submit">Send</button>
-        </div>
+      <div class="col-sm-6 form-group">
+        <input class="form-control" id="email" name="email" placeholder="Email" type="email" required>
+      </div>
+    </div>
+    <textarea class="form-control" id="comments" name="comments" placeholder="Message" rows="5"></textarea><br>
+    <div class="row">
+      <div class="col-sm-12 form-group">
+        <button class="btn btn-default pull-right" type="submit">Send</button>
       </div>
     </div>
   </div>
 </div>
+</div>
 
-<img src="map.jpg" alt="Location" style="width: 100%;">
+<!-- Confirmation Page -->
+<div id="confirmation" style="display: none;">
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2 text-center">
+      <h2>Thank you for applying!</h2>
+      <p>Your application has been received. We will review it and get back to you shortly.</p>
+    </div>
+  </div>
+</div>
+</div>
+
+<img src="images/map.jpg" alt="Location" style="width: 100%;">
 
 <footer class="container-fluid text-center">
-  <a href="#myPage" title="To Top">
-    <span class="glyphicon glyphicon-chevron-up"></span>
-  </a>
-  <p>LoanNow - Quick Loans for Your Needs</p>
-  <hr>
-  <a href="#">Terms and Condition</a>
-  <a href="#">Policy Violation</a>
-  <a href="#">Help Center</a>
+<a href="#myPage" title="To Top">
+  <span class="glyphicon glyphicon-chevron-up"></span>
+</a>
+<p>LoanNow - Quick Loans for Your Needs</p>
+<hr>
+<a href="#">Terms and Condition</a>
+<a href="#">Policy Violation</a>
+<a href="#">Help Center</a>
 </footer>
 
 <script src="script.js"></script>
