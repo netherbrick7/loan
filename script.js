@@ -63,3 +63,5 @@ $(document).ready(function() {
   function signUp(){
     document.getElementById('signUp').innerHTML = signin.html;
   }
+
+  

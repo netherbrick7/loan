@@ -3,15 +3,289 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
+    <title>User Dashboard - LoanNow</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+        body {
+            font-family: 'Lato', sans-serif;
+        }
+        .navbar {
+            margin-bottom: 0;
+            background-color: #0070F0;
+            z-index: 9999;
+            border: 0;
+            font-size: 12px !important;
+            line-height: 1.42857143 !important;
+            letter-spacing: 4px;
+            border-radius: 0;
+        }
+        .navbar li a, .navbar .navbar-brand {
+            color: #fff !important;
+        }
+        .navbar-nav li a:hover, .navbar-nav li.active a {
+            color: #0070F0 !important;
+            background-color: #fff !important;
+        }
+        .navbar-default .navbar-toggle {
+            border-color: transparent;
+            color: #fff !important;
+        }
+        .jumbotron {
+            background-color: #0070F0;
+            color: #fff;
+            padding: 100px 25px;
+            font-family: 'Montserrat', sans-serif;
+        }
+        .container-fluid {
+            padding: 60px 50px;
+        }
+        .panel {
+            border: 1px solid #0070F0;
+            border-radius: 0;
+            transition: box-shadow 0.5s;
+        }
+        .panel:hover {
+            box-shadow: 5px 0px 40px rgba(0, 0, 0, .2);
+        }
+        .panel-heading {
+            color: #fff !important;
+            background-color: #0070F0 !important;
+            padding: 25px;
+            border-bottom: 1px solid transparent;
+            border-radius: 0;
+        }
+        .panel-footer {
+            background-color: white !important;
+        }
+        .panel-footer .btn:hover {
+            border: 1px solid #0070F0;
+            background-color: #fff !important;
+            color: #0070F0;
+        }
+    </style>
 </head>
-<style>
-    h1{
-        font-size: 70px;
-        text-align: center;
-    }
-</style>
-<body>
-    <h1>Hello World!</h1>
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
+
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="index.html">LoanNow</a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#profile">PROFILE</a></li>
+                <li><a href="#balance">BALANCE</a></li>
+                <li><a href="#payment-history">PAYMENT HISTORY</a></li>
+                <li><a href="#loan-history">LOAN HISTORY</a></li>
+                <li><a href="#pending-loans">PENDING LOANS</a></li>
+                <!-- New Loans Link -->
+                <li><a href="#loans">LOANS</a></li>
+                <li><a href="signin.html">LOGOUT<span class="glyphicon glyphicon-log-out"></span></a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="jumbotron text-center">
+    <h1>User Dashboard</h1>
+    <p>Manage your loans and payments</p>
+</div>
+
+<div id="profile" class="container-fluid">
+    <h2 class="text-center">User Profile</h2>
+    <div class="row">
+        <div class="col-sm-8 col-sm-offset-2">
+            <div class="panel panel-default">
+                <div class="panel-heading">Profile Information</div>
+                <div class="panel-body">
+                    <form id="profileForm">
+                        <div class="form-group">
+                            <label for="name">Name:</label>
+                            <input type="text" class="form-control" id="name" name="name" value="John Doe">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email:</label>
+                            <input type="email" class="form-control" id="email" name="email" value="john.doe@example.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone:</label>
+                            <input type="tel" class="form-control" id="phone" name="phone" value="+63 971-123-4567">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Update</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="balance" class="container-fluid">
+    <h2 class="text-center">Balance / Settle Payment</h2>
+    <div class="row">
+        <div class="col-sm-8 col-sm-offset-2">
+            <div class="panel panel-default">
+                <div class="panel-heading">Balance Information</div>
+                <div class="panel-body">
+                    <p><strong>Current Balance:</strong> ₱5,000.00</p>
+                    <button class="btn btn-success">Settle Payment</button>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">Pending Loans</div>
+                <div class="panel-body">
+                    <p><strong>Loan 1000:</strong> ₱1,200.00 due on 2024-06-01</p>
+                    <p><strong>Loan 50:</strong> ₱100.00 due on 2024-06-05</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="payment-history" class="container-fluid">
+    <h2 class="text-center">Payment History</h2>
+    <div class="row">
+        <div class="col-sm-8 col-sm-offset-2">
+            <div class="panel panel-default">
+                <div class="panel-heading">Recent Payments</div>
+                <div class="panel-body">
+                    <p><strong>Payment on 2024-05-20:</strong>
+₱1,200.00</p>
+                    <p><strong>Payment on 2024-05-10:</strong> ₱500.00</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="loan-history" class="container-fluid">
+    <h2 class="text-center">Loan History</h2>
+    <div class="row">
+        <div class="col-sm-8 col-sm-offset-2">
+            <div class="panel panel-default">
+                <div class="panel-heading">Previous Loans</div>
+                <div class="panel-body">
+                    <p><strong>Loan 1000:</strong> ₱1,200.00 repaid on 2024-05-20</p>
+                    <p><strong>Loan 50:</strong> ₱100.00 repaid on 2024-05-10</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="pending-loans" class="container-fluid">
+    <h2 class="text-center">Pending Loans</h2>
+    <div class="row">
+        <div class="col-sm-8 col-sm-offset-2">
+            <div class="panel panel-default">
+                <div class="panel-heading">Loans Awaiting Approval</div>
+                <div class="panel-body">
+                    <p><strong>Loan 500:</strong> ₱600.00 applied on 2024-05-22</p>
+                    <p><strong>Loan 2000:</strong> ₱2,400.00 applied on 2024-05-25</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="loans" class="container-fluid">
+    <h2 class="text-center">Your Loans</h2>
+    <div class="row">
+        <div class="col-sm-4 col-xs-12">
+            <div class="panel panel-default text-center">
+                <div class="panel-heading">
+                    <h1>Loan 50</h1>
+                </div>
+                <div class="panel-body">
+                    <p><strong>50</strong> Php</p>
+                    <p><strong>100%</strong> Interest</p>
+                    <p><strong>No Hidden</strong> Fees</p>
+                </div>
+                <div class="panel-footer">
+                    <h3>50 Php</h3>
+                    <button class="btn btn-lg" id="settleButton">Settle Now</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4 col-xs-12">
+            <div class="panel panel-default text-center">
+              <div class="panel-heading">
+                <h1>Pro</h1>
+              </div>
+              <div class="panel-body">
+                <p><strong>Competitive</strong> Interest Rates</p>
+                <p><strong>Customizable</strong> Repayment Plans</p>
+                <p><strong>Priority</strong> Customer Support</p>
+              </div>
+              <div class="panel-footer">
+                <h3>Starting at ₱5000/mo</h3>
+                <button class="btn btn-lg" id="settleButton1">Settle Now</button>
+              </div>
+          </div>      
+        </div>
+        <div class="col-sm-4 col-xs-12">
+            <div class="panel panel-default text-center">
+              <div class="panel-heading">
+                <h1>Loan C</h1>
+              </div>
+              <div class="panel-body">
+                <p><strong>Lowest</strong> Interest Rates</p>
+                <p><strong>Flexible</strong> Terms and Conditions</p>
+                <p><strong>Exclusive</strong> Benefits</p>
+              </div>
+              <div class="panel-footer">
+                <h3>Starting at ₱50,000/mo</h3>
+                <button class="btn btn-lg" id="settleButton2">Settle Now</button>
+              </div>
+            </div>      
+          </div>
+    </div>
+</div>
+
+<footer class="container-fluid text-center">
+    <a href="#myPage" title="To Top">
+        <span class="glyphicon glyphicon-chevron-up"></span>
+    </a>
+    <p>LoanNow - Quick Loans for Your Needs</p>
+    <hr>
+    <a href="#">Terms and Condition</a>
+    <a href="#">Policy Violation</a>
+    <a href="#">Help Center</a>
+</footer>
+
+<script src="script.js"></script>
+  <script>
+    // JavaScript code for settling payment and showing alert
+    document.getElementById("settleButton").addEventListener("click", function() {
+        // Your code to handle payment settlement goes here
+
+        // For demonstration purposes, let's simulate a successful payment settlement
+        // Show alert to notify the user
+        alert("Payment settled successfully!");
+    });
+
+     // JavaScript code for settling payment and showing alert
+     document.getElementById("settleButton1").addEventListener("click", function() {
+        // Your code to handle payment settlement goes here
+
+        // For demonstration purposes, let's simulate a successful payment settlement
+        // Show alert to notify the user
+        alert("Payment settled successfully!");
+    });
+
+     // JavaScript code for settling payment and showing alert
+     document.getElementById("settleButton2").addEventListener("click", function() {
+        // Your code to handle payment settlement goes here
+
+        // For demonstration purposes, let's simulate a successful payment settlement
+        // Show alert to notify the user
+        alert("Payment settled successfully!");
+    });
+
+</script>
 </body>
 </html>
