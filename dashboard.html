@@ -90,7 +90,7 @@
                 <li><a href="#pending-loans">PENDING LOANS</a></li>
                 <!-- New Loans Link -->
                 <li><a href="#loans">LOANS</a></li>
-                <li><a href="signin.html">LOGOUT<span class="glyphicon glyphicon-log-out"></span></a></li>
+                <li><a href="#" id="logoutButton">LOGOUT<span class="glyphicon glyphicon-log-out"></span></a></li>
             </ul>
         </div>
     </div>
@@ -289,6 +289,15 @@
         // For demonstration purposes, let's simulate a successful payment settlement
         // Show alert to notify the user
         alert("Payment settled successfully!");
+    });
+
+     // JavaScript code for logout confirmation and redirection
+     document.getElementById("logoutButton").addEventListener("click", function() {
+        // Ask for confirmation before logging out
+        if (confirm("Are you sure you want to logout?")) {
+            // If confirmed, redirect to index.html
+            window.location.href = "index.html";
+        }
     });
 
 </script>
